@@ -13,13 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-public class MenuLateral extends AppCompatActivity
+public class MenuLateralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentManager fragmentManager;
     FloatingActionButton fab;
+    CarroFragment carro = new CarroFragment();
+    MenuCFragment menuCategoria = new MenuCFragment();
 
-    public MenuLateral(){
+
+    public MenuLateralActivity(){
         fragmentManager = getSupportFragmentManager();
     }
 
@@ -34,7 +37,7 @@ public class MenuLateral extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                flat(true, new CarroFragment());
+                flat(true, carro);
             }
         });
 
@@ -47,7 +50,7 @@ public class MenuLateral extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fragmentManager.beginTransaction().replace(R.id.contenedor, new MenuCFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.contenedor, menuCategoria).commit();
     }
 
     /*
@@ -86,9 +89,9 @@ public class MenuLateral extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_inicio) {
-            flat(false, new MenuCFragment());
+            flat(false, menuCategoria);
         } else if (id == R.id.nav_carro) {
-            flat(true, new CarroFragment());
+            flat(true, carro);
         } else if (id == R.id.nav_idioma) {
 
         } else if (id == R.id.nav_share) {

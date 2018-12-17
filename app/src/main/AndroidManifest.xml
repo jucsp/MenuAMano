@@ -16,9 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VistaScan" />
+        <activity android:name=".ScanActivity" />
         <activity
-            android:name=".MenuLateral"
+            android:name=".MenuLateralActivity"
             android:label="@string/title_activity_menu_lateral"
             android:theme="@style/TemaApp"></activity>
     </application>

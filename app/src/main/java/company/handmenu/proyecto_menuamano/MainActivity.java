@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         boton_acceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), VistaScan.class);
+                Intent intent = new Intent(v.getContext(), ScanActivity.class);
                 startActivityForResult(intent, 0);
             }
         });

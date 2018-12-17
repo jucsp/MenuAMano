@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Proyecto_MenuAMano</string>
+    <string name="app_name">MenuAMano-APP</string>
     <string name="scan_ins">Mantenga el codigo en la pantalla para ingresar a nuestro menu</string>
     <string name="menu">Menu</string>
     <string name="title_activity_test_nav">TestNav</string>
@@ -8,7 +8,6 @@
     <string name="nav_header_title">Nombre del local</string>
     <string name="nav_header_subtitle">Las mejores pastas de la region</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
     <string name="title_activity_menu_lateral"></string>
     <string name="categoria">Menu</string>
     <string name="carro">Carrito</string>
@@ -16,6 +15,9 @@
     <string name="lab_precio">Precio</string>
     <string name="lab_quitar">Quitar</string>
     <string name="lab_total">Total</string>
+    <string name="detalles">Detalles</string>
+    <string name="ingrediente">Ingredientes</string>
+    <string name="porciones">Porciones aprox</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

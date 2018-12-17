@@ -2,22 +2,25 @@ package company.handmenu.proyecto_menuamano;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import modelo.AdaptadorCategoria;
 import modelo.Categoria;
+import modelo.Menu;
 
-import java.util.ArrayList;
 
 
 public class MenuCFragment extends Fragment {
 
     private ListView lista;
 
-    private ArrayList<Categoria> itemsLista = new ArrayList<>();
+    private final Menu menu = new Menu();
+
+    private FragmentManager fragmentManager;
 
 
     /* Este constructor es de testeo, cuando el Admin desee agregar nuevas categorias habra
@@ -27,11 +30,15 @@ public class MenuCFragment extends Fragment {
         Categoria c1 = new Categoria("entrada_cat","Entradas", R.drawable.entrada_test);
         Categoria c2 = new Categoria("fondo_cat", "Fondos", R.drawable.fondo_test);
         Categoria c3 = new Categoria("postre_cat", "Postres", R.drawable.postre_test);
-        this.itemsLista.add(c1);
-        this.itemsLista.add(c2);
-        this.itemsLista.add(c3);
-        this.itemsLista.add(c1);
-        this.itemsLista.add(c2);
+        menu.addCategoria(c1);
+        menu.addCategoria(c2);
+        menu.addCategoria(c3);
+        menu.addCategoria(c1);
+        menu.addCategoria(c2);
+        menu.addCategoria(c3);
+        menu.addCategoria(c1);
+        menu.addCategoria(c2);
+        menu.addCategoria(c3);
     }
 
 
@@ -42,7 +49,22 @@ public class MenuCFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_menu_c, container, false);
 
         lista = (ListView) view.findViewById(R.id.lista_cat);
-        lista.setAdapter(new AdaptadorCategoria(this.getActivity().getApplicationContext(), itemsLista));
+        lista.setAdapter(new AdaptadorCategoria(this.getActivity().getApplicationContext(), menu.getMenuCategorias()));
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Categoria categoria = menu.getMenuCategorias().get(position);
+                MenuPFragment listaProducto = new MenuPFragment();
+
+                listaProducto.setData(categoria);
+
+                fragmentManager.beginTransaction().replace(R.id.contenedor, listaProducto).commit();
+            }
+        });
 
         return view;
     }
