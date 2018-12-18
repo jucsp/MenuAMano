@@ -10,6 +10,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button boton_acceder;
 
+    private String key="admin";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +22,14 @@ public class MainActivity extends AppCompatActivity {
         boton_acceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ScanActivity.class);
-                startActivityForResult(intent, 0);
+                if(key=="admin"){
+                    Intent intent = new Intent(v.getContext(), MenuLateralActivity.class);
+                    startActivityForResult(intent, 0);
+                }else{
+                    Intent intent = new Intent(v.getContext(), ScanActivity.class);
+                    startActivityForResult(intent, 0);
+                }
+
             }
         });
 

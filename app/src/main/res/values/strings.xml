@@ -18,6 +18,11 @@
     <string name="detalles">Detalles</string>
     <string name="ingrediente">Ingredientes</string>
     <string name="porciones">Porciones aprox</string>
+    <string name="admin">Administrador</string>
+    <string name="add_sec_admin">Agregar seccion/categoria</string>
+    <string name="edit_sec_admin">Editar seccion/categoria</string>
+    <string name="del_sec_admin">Eliminar seccion/categoria</string>
+    <string name="admin_sec">Administrar categorias</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

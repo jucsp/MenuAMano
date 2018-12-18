@@ -13,17 +13,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import modelo.Menu;
+
 public class MenuLateralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    FragmentManager fragmentManager;
-    FloatingActionButton fab;
-    CarroFragment carro = new CarroFragment();
-    MenuCFragment menuCategoria = new MenuCFragment();
+    private FragmentManager fragmentManager;
+    private FloatingActionButton fab;
+    private CarroFragment carro = new CarroFragment();
+    private MenuCFragment menuCategoria = new MenuCFragment();
+    private String key = "admin";
+    private Menu menu = new Menu();
 
 
     public MenuLateralActivity(){
         fragmentManager = getSupportFragmentManager();
+        menuCategoria.getMenu(menu);
+        menuCategoria.setData();
     }
 
     @Override
@@ -50,7 +56,7 @@ public class MenuLateralActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fragmentManager.beginTransaction().replace(R.id.contenedor, menuCategoria).commit();
+        determinante(key);
     }
 
     /*
@@ -63,6 +69,20 @@ public class MenuLateralActivity extends AppCompatActivity
             fab.show();
         }
         fragmentManager.beginTransaction().replace(R.id.contenedor, clase).commit();
+    }
+
+    public void recibirKey(String key){
+        this.key = key;
+    }
+
+    public void determinante(String key){
+        AdminFragment admin = new AdminFragment();
+        admin.getData(menu);
+        if(key == "admin"){
+            flat(true, admin);
+        }else{
+            flat(true, menuCategoria);
+        }
     }
 
     /*
@@ -89,7 +109,7 @@ public class MenuLateralActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_inicio) {
-            flat(false, menuCategoria);
+            determinante(key);
         } else if (id == R.id.nav_carro) {
             flat(true, carro);
         } else if (id == R.id.nav_idioma) {

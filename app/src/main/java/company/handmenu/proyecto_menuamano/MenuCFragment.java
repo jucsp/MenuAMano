@@ -18,7 +18,7 @@ public class MenuCFragment extends Fragment {
 
     private ListView lista;
 
-    private final Menu menu = new Menu();
+    private Menu menu;
 
     private FragmentManager fragmentManager;
 
@@ -27,15 +27,16 @@ public class MenuCFragment extends Fragment {
     que modificarlo de modo que funcione de forma dinamica.
      */
     public MenuCFragment(){
+    }
+
+    public void getMenu(Menu menu){
+        this.menu = menu;
+    }
+
+    public void setData(){
         Categoria c1 = new Categoria("entrada_cat","Entradas", R.drawable.entrada_test);
         Categoria c2 = new Categoria("fondo_cat", "Fondos", R.drawable.fondo_test);
         Categoria c3 = new Categoria("postre_cat", "Postres", R.drawable.postre_test);
-        menu.addCategoria(c1);
-        menu.addCategoria(c2);
-        menu.addCategoria(c3);
-        menu.addCategoria(c1);
-        menu.addCategoria(c2);
-        menu.addCategoria(c3);
         menu.addCategoria(c1);
         menu.addCategoria(c2);
         menu.addCategoria(c3);
