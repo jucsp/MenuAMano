@@ -16,6 +16,7 @@ public class AdminFragment extends Fragment {
 
     private final String[] opciones = new String[3]; //Se define la cantidad de opciones
     private int[] iconos = new int[3];
+    private MenuCFragment menuCFragment = new MenuCFragment();
 
     private Menu categorias;
 
@@ -29,8 +30,11 @@ public class AdminFragment extends Fragment {
         iconos[2] = R.drawable.eye;
     }
 
-    public void getData(Menu categorias){
+    public void setData(Menu categorias){
+
         this.categorias = categorias;
+        menuCFragment.getMenu(categorias);
+
     }
 
     @Override
@@ -44,12 +48,31 @@ public class AdminFragment extends Fragment {
 
         final AdminCatFragment admin_cat = new AdminCatFragment();
         admin_cat.getData(categorias);
+        ;
+        final AdminProdFragment admin_prod = new AdminProdFragment();
+        admin_prod.getData(categorias);
 
         final FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                fragmentManager.beginTransaction().replace(R.id.contenedor, admin_cat).commit();
+                switch(position){
+
+                    case 0:
+                        fragmentManager.beginTransaction().replace(R.id.contenedor, admin_cat).commit();
+                        break;
+
+                    case 1:
+                        fragmentManager.beginTransaction().replace(R.id.contenedor, admin_prod).commit();
+                        break;
+
+                    case 2:
+                        fragmentManager.beginTransaction().replace(R.id.contenedor, menuCFragment).commit();
+                        break;
+
+
+                }
+
             }
         });
 

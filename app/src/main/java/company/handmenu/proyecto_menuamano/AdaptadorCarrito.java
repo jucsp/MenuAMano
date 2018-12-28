@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import modelo.Producto;
 
 
-public class AdaptadorCarrito extends ArrayAdapter<Producto>{
+public class
+AdaptadorCarrito extends ArrayAdapter<Producto>{
 
     private final ArrayList<Producto> lista;
     private final Context context;

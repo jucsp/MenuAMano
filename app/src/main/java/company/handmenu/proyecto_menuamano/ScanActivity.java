@@ -22,6 +22,7 @@ public class ScanActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), MenuLateralActivity.class);
+                intent.putExtra("key","user");
                 startActivityForResult(intent, 0);
             }
         });

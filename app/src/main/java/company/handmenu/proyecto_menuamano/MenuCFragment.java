@@ -11,10 +11,12 @@ import android.widget.ListView;
 
 import modelo.Categoria;
 import modelo.Menu;
-
+import modelo.Producto;
 
 
 public class MenuCFragment extends Fragment {
+
+    private Producto p1, p2, p3;
 
     private ListView lista;
 
@@ -40,6 +42,29 @@ public class MenuCFragment extends Fragment {
         menu.addCategoria(c1);
         menu.addCategoria(c2);
         menu.addCategoria(c3);
+
+        p1 = new Producto("pizza_nap",
+                "Pizza Napolitana",
+                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
+                "5 Personas",
+                15000,
+                R.drawable.prod1_test);
+        p2 = new Producto( "carbonara",
+                "Espagueti a la carbonara",
+                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
+                "1 Persona",
+                12000,
+                R.drawable.prod2_test);
+        p3 = new Producto("funghi_porcini",
+                "Risotto con funghi porcini",
+                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
+                "1 Persona",
+                11000,
+                R.drawable.prod3_test);
+
+        c2.addProducto(p1);
+        c2.addProducto(p2);
+        c2.addProducto(p3);
     }
 
 

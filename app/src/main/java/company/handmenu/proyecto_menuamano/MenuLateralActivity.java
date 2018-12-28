@@ -22,7 +22,7 @@ public class MenuLateralActivity extends AppCompatActivity
     private FloatingActionButton fab;
     private CarroFragment carro = new CarroFragment();
     private MenuCFragment menuCategoria = new MenuCFragment();
-    private String key = "admin";
+    private String key ;
     private Menu menu = new Menu();
 
 
@@ -56,7 +56,7 @@ public class MenuLateralActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        determinante(key);
+        selector();
     }
 
     /*
@@ -71,17 +71,19 @@ public class MenuLateralActivity extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.contenedor, clase).commit();
     }
 
-    public void recibirKey(String key){
-        this.key = key;
+    public void setKey(){
+        key = getIntent().getExtras().getString("key");
+        System.out.println("Key recibida: " + key);
     }
 
-    public void determinante(String key){
+    public void selector(){
         AdminFragment admin = new AdminFragment();
-        admin.getData(menu);
-        if(key == "admin"){
+        admin.setData(menu);
+        setKey();
+        if(key.equals("admin")){
             flat(true, admin);
         }else{
-            flat(true, menuCategoria);
+            flat(false, menuCategoria);
         }
     }
 
@@ -95,9 +97,9 @@ public class MenuLateralActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         }
-        /*else {
-            super.onBackPressed();
-        }*/ //Con esto se evita volver a la pantalla Scanner
+        else {
+            selector();
+        }
     }
 
     /*
@@ -109,15 +111,11 @@ public class MenuLateralActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_inicio) {
-            determinante(key);
+            selector();
         } else if (id == R.id.nav_carro) {
             flat(true, carro);
         } else if (id == R.id.nav_idioma) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            //No se aplica de momento.
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

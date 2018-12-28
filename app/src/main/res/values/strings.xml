@@ -23,6 +23,11 @@
     <string name="edit_sec_admin">Editar seccion/categoria</string>
     <string name="del_sec_admin">Eliminar seccion/categoria</string>
     <string name="admin_sec">Administrar categorias</string>
+    <string name="select_prod_lab">Selecciona una seccion/categoria</string>
+    <string name="add_prod_lab">Agregar producto</string>
+    <string name="edit_prod_lab">Editar producto</string>
+    <string name="del_prod_lab">Eliminar producto</string>
+    <string name="admin_prod">Administrar productos</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

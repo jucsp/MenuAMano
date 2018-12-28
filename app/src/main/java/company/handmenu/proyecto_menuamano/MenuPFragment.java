@@ -17,7 +17,6 @@ import modelo.Producto;
 
 public class MenuPFragment extends Fragment {
 
-    private Producto p1, p2, p3;
     private Categoria categoria;
 
     private FragmentManager fragmentManager;
@@ -29,24 +28,7 @@ public class MenuPFragment extends Fragment {
         de forma automatica los platos ingresados por el ADMIN a la categoria que corresponda.
     */
     public MenuPFragment() {
-        p1 = new Producto("pizza_nap",
-                "Pizza Napolitana",
-                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
-                "5 Personas",
-                15000,
-                R.drawable.prod1_test);
-        p2 = new Producto( "carbonara",
-                "Espagueti a la carbonara",
-                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
-                "1 Persona",
-                12000,
-                R.drawable.prod2_test);
-        p3 = new Producto("funghi_porcini",
-                "Risotto con funghi porcini",
-                "Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -Ing1 - Ing2 -",
-                "1 Persona",
-                11000,
-                R.drawable.prod3_test);
+
     }
 
     public void setData(Categoria categoria){
@@ -54,9 +36,7 @@ public class MenuPFragment extends Fragment {
         if(this.categoria.getId()=="entrada_cat"){
 
         }else if(this.categoria.getId()=="fondo_cat"){
-            this.categoria.addProducto(p1);
-            this.categoria.addProducto(p2);
-            this.categoria.addProducto(p3);
+
         }else if(this.categoria.getId()=="postre_cat"){
 
         }
@@ -84,7 +64,7 @@ public class MenuPFragment extends Fragment {
                 Producto producto = categoria.getListaProductos().get(position);
                 ProductoFragment productoFragment = new ProductoFragment();
 
-                productoFragment.setData(producto);
+                productoFragment.getData(producto);
 
                 fragmentManager.beginTransaction().replace(R.id.contenedor, productoFragment).commit();
             }

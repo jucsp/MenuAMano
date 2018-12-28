@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ScanActivity" />
+        <activity android:name=".AuxLogActivity" />
         <activity
             android:name=".MenuLateralActivity"
             android:label="@string/title_activity_menu_lateral"

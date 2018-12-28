@@ -19,7 +19,7 @@ public class ProductoFragment extends Fragment {
     public ProductoFragment() {
     }
 
-    public void setData(Producto producto){
+    public void getData(Producto producto){
         this.producto = producto;
     }
 
